@@ -1,0 +1,112 @@
+@import "ie";
+@import "print";
+@import "screen";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "compass/css3";
+
+//Color Palette
+$color-gold: #f2d476;
+$color-brimstone: #873116;
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 950px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container{
+        max-width: 950px;
+    }
+}
+
+body {
+	background-image: url(../img/background.jpg);
+	background-repeat: no-repeat;
+	color: #8e8e8e
+}
+
+header {
+	height: 165px;
+}
+
+.logo {
+	position: absolute;
+	left: -85px;
+	z-index: -1;
+}
+
+.nav-tabs {
+	border-bottom: none;
+	> li {
+		margin-bottom: 1px;
+		margin-left: 37px;
+		> a {
+			padding: 0 24px;
+			line-height: 28px;
+		}
+	}
+}
+
+.container-main-content {
+	padding: 20px;
+  	@include border-top-radius(12px);
+	background-image: url(../img/content-texture.jpg);
+	background-repeat: repeat-x;
+	background-color: #121214;
+}
+
+.container-main-rail {
+	height: 13px;
+	margin-top: -20px;
+	margin-right: -5px;
+	margin-left: -5px;
+	background-repeat: repeat-x;
+  	@include border-top-radius(12px);
+	background-image: url(../img/header-texture.jpg);
+}
+
+h1, h2 {
+	color: $color-gold
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+i {
+	font-style: italic;
+}
+
+h2 {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.result {
+	border-bottom: 1px solid #888;
+	padding: 4px 0;
+}
+
+.no-results {
+	margin-top: 55px;
+	text-align: center;
+}
+
+.btn-primary {
+	border-color: #76340c;
+	color: $color-brimstone;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 22px;
+	padding: 0 20px;
+	@include background-image(linear-gradient(top, rgba(146,89,35,1) 0%,rgba(184,147,76,1) 25%,rgba(213,186,102,1) 50%,rgba(184,147,76,1) 76%,rgba(146,89,35,1) 100%,rgba(146,89,35,1) 100%));
+	&:hover, &:active, &:focus {
+		color: $color-brimstone;
+		border-color: lighten(#76340c, 5%);
+		@include background-image(linear-gradient(top, lighten(rgba(146,89,35,1), 5%) 0%, lighten(rgba(184,147,76,1), 5%) 25%,lighten(rgba(213,186,102,1), 5%) 50%,lighten(rgba(184,147,76,1), 5%) 76%,lighten(rgba(146,89,35,1), 5%) 100%,lighten(rgba(146,89,35,1), 5%) 100%));
+	}
+
+}

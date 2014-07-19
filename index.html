@@ -13,16 +13,59 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body ng-app="battleworldApp">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Add your content here</p>
+        <div class="container">
+            <header>
+                <img src="img/logo.png" alt="Battleworld" class="logo">
+            </header>
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a class="btn-primary" href="#">Home</a></li>
+                <li><a class="btn-primary" href="#">About</a></li>
+                <li><a class="btn-primary" href="#">Media</a></li>
+            </ul>
 
+            <div class="container-main-content" ng-controller="MainCtrl">
+                <div class="row">
+                    <div class="container-main-rail"></div>
+                    <div class="col-xs-6">
+                        <h1>Search Repositories By Username</h1>
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group text-right">
+                                <label for="inputPassword" class="col-sm-2 control-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input ng-model="term" type="text" class="form-control" placeholder="Enter Username">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button ng-click="performSearch(term)" type="button" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-6">
+                        <div ng-show="results.length">
+                            <h2>{{ results.length }} repositories were found for <i>{{ term }}</i></h2>
+                            <div ng-repeat="result in results" class="result">
+                                {{result.name}}<span class="pull-right">{{result.watchers}}</span>
+                            </div>
+                        </div>
+                        <div ng-hide="results.length" class="no-results">
+                            {{noResults}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="bower_components/angular/angular.min.js"></script>
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers/main.js"></script>
     </body>
 </html>
